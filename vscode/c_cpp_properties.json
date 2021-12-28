@@ -1,0 +1,12 @@
+"configurations": [
+    {
+        "name": "default",
+        "cppStandard": "c++17",
+        "cStandard": "c99",
+        "includePath": [
+            "${default}",
+            "${workspaceFolder}/include"
+        ],
+        "defines": []
+    }
+]
