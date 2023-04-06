@@ -2,8 +2,6 @@
 
 # Set the prompt to the following:
 # [WHITESPACE]
-# [DEFAULT] exit code
-# [WHITESPACE}
 # [BOLD, BLUE] username
 # [DEFAULT] <AT>
 # [DEFAULT] short hostname
@@ -12,7 +10,7 @@
 # [WHITESPACE]
 # [DEFAULT] <PERCENT>
 # [WHITESPACE]
-export PS1=" \[\e[0m\]$? \[\e[0;1;34m\]\u\[\e[0m\]@\[\e[0m\]\h \[\e[0;1;37m\]\w \[\e[0m\]% \[\e[0m\]"
+export PS1=" \[\e[0;1;34m\]\u\[\e[0m\]@\[\e[0m\]\h \[\e[0;1;37m\]\w \[\e[0m\]% \[\e[0m\]"
 
 # Some systems define LANGUAGE, some
 # define LANG and others use LC_ALL, so
