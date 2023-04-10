@@ -1,0 +1,151 @@
+# Mod1 - Alt
+# Mod4 - Super
+set $MODKEY Mod1
+set $TERMINAL terminator
+set $MENU dmenu_run
+
+# Colors - testing
+set $COL_PRIM #FF0084
+set $COL_SECN #2E2E2E
+set $COL_BACK #000000
+set $COL_FORE #FFFFFF
+
+# Start a new terminal session
+bindsym $MODKEY+Return exec --no-startup-id $TERMINAL; focus
+
+# Run the menu application
+# My hands don't physically feel comfortable
+# when reaching for the D key as the index finger
+# is laying right on the R key instead, so here's that.
+bindsym $MODKEY+r exec --no-startup-id $MENU
+
+# Use pamixer to adust PulseAudio's (actually just
+# a wrapper PipeWire, I guess) volume settings
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 10
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 10
+bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
+bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source --toggle-mute
+
+# Adjust backlight brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Holding this allows to drag
+# floating containers around whilst
+# holding $MODKEY and left mouse button
+floating_modifier $MODKEY
+
+# Kill the focused container
+bindsym $MODKEY+Shift+q kill
+
+# Move focus around containers
+bindsym $MODKEY+h focus left
+bindsym $MODKEY+j focus down
+bindsym $MODKEY+k focus up
+bindsym $MODKEY+l focus right
+
+# Move focused container around
+bindsym $MODKEY+Shift+h move left
+bindsym $MODKEY+Shift+j move down
+bindsym $MODKEY+Shift+k move up
+bindsym $MODKEY+Shift+l move right
+
+# I sometimes feel like using arrows
+# Move focus around containers
+bindsym $MODKEY+Left  focus left
+bindsym $MODKEY+Down  focus down
+bindsym $MODKEY+Up    focus up
+bindsym $MODKEY+Right focus right
+
+# I sometimes feel like using arrows
+# Move focused container around
+bindsym $MODKEY+Shift+Left  move left
+bindsym $MODKEY+Shift+Down  move down
+bindsym $MODKEY+Shift+Up    move up
+bindsym $MODKEY+Shift+Right move right
+
+# Split container vertically/horizontally
+bindsym $MODKEY+v split v
+bindsym $MODKEY+b split h
+
+# Change container layout
+bindsym $MODKEY+s layout stacking
+bindsym $MODKEY+t layout tabbed
+bindsym $MODKEY+e layout toggle split
+
+# Define workspace names
+set $WS1 "1"
+set $WS2 "2"
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8"
+
+# Switch to workspace
+bindsym $MODKEY+1 workspace number $WS1
+bindsym $MODKEY+2 workspace number $WS2
+bindsym $MODKEY+3 workspace number $WS3
+bindsym $MODKEY+4 workspace number $WS4
+bindsym $MODKEY+5 workspace number $WS5
+bindsym $MODKEY+6 workspace number $WS6
+bindsym $MODKEY+7 workspace number $WS7
+bindsym $MODKEY+8 workspace number $WS8
+
+# Move focused container to workspace
+bindsym $MODKEY+Shift+1 move container to workspace number $WS1
+bindsym $MODKEY+Shift+2 move container to workspace number $WS2
+bindsym $MODKEY+Shift+3 move container to workspace number $WS3
+bindsym $MODKEY+Shift+4 move container to workspace number $WS4
+bindsym $MODKEY+Shift+5 move container to workspace number $WS5
+bindsym $MODKEY+Shift+6 move container to workspace number $WS6
+bindsym $MODKEY+Shift+7 move container to workspace number $WS7
+bindsym $MODKEY+Shift+8 move container to workspace number $WS8
+
+# Resizing shit
+mode "resize" {
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resizing shit: the keybind edition
+bindsym $MODKEY+Ctrl+r mode "resize"
+
+# i3-specific bindings
+bindsym $MODKEY+Shift+c reload
+bindsym $MODKEY+Shift+r restart
+
+# Container borders
+default_border pixel 1
+for_window [class="^.*"] border pixel 1
+gaps inner 4
+gaps outer 2
+
+# Colors
+client.focused $COL_PRIM $COL_BACK $COL_FORE $COL_PRIM $COL_PRIM
+client.focused_inactive $COL_BACK $COL_BACK $COL_FORE $COL_BACK $COL_BACK
+client.unfocused $COL_BACK $COL_BACK $COL_FORE $COL_BACK $COL_BACK
+
+# The font (eek)
+font pango:Ubuntu Mono 16
+
+# Start XDG autostart .desktop entries using dex
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# Autostart
+exec --no-startup-id $HOME/.config/i3/scripts/init.dbus.sh
+exec --no-startup-id $HOME/.config/i3/scripts/init.keyboard.sh
+exec_always --no-startup-id $HOME/.config/i3/scripts/reload.polybar.sh
+exec_always --no-startup-id $HOME/.config/i3/scripts/reload.wallpaper.sh
