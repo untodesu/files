@@ -2,4 +2,4 @@
 
 # UNDONE: randomize the wallpaper
 # every time this command gets executed
-feh --bg-fill /usr/share/wallpapers/wallpaperchan_kc89167.jpg
+feh --bg-fill --randomize ${HOME}/.config/i3/wallpapers
