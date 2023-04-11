@@ -1,6 +1,6 @@
 base
 base-devel
-dhcpcd
+efibootmgr
 git
 grml-zsh-config
 grub
@@ -9,6 +9,7 @@ linux-firmware
 linux-firmware-qlogic
 man-db
 man-pages
+networkmanager
 sudo
 terminus-font
 texinfo
