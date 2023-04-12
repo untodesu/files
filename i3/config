@@ -167,13 +167,9 @@ font pango:Ubuntu Mono 16
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Start the keyring. Yikes!
-exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
-
 # Autostart
 exec --no-startup-id $HOME/.config/i3/scripts/init.dbus.sh
 exec --no-startup-id $HOME/.config/i3/scripts/init.keyboard.sh
-exec_always --no-startup-id $HOME/.config/i3/scripts/reload.polkit.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/reload.dunst.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/reload.flameshot.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/reload.polybar.sh
