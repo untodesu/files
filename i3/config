@@ -2,7 +2,7 @@
 # Mod4 - Super
 set $MODKEY Mod1
 set $TERMINAL terminator
-set $MENU dmenu_run -fn "Ubuntu-Mono:regular:size=16"
+set $MENU dmenu_run -fn "Ubuntu-Mono:regular:size=18"
 set $DPI 120
 
 # Colors - testing
@@ -168,12 +168,12 @@ font pango:Ubuntu Mono 16
 exec --no-startup-id dex --autostart --environment i3
 
 # Start the keyring. Yikes!
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 # Autostart
 exec --no-startup-id $HOME/.config/i3/scripts/init.dbus.sh
 exec --no-startup-id $HOME/.config/i3/scripts/init.keyboard.sh
-exec --no-startup-id $HOME/.config/i3/scripts/init.polkit.sh
+exec_always --no-startup-id $HOME/.config/i3/scripts/reload.polkit.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/reload.dunst.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/reload.flameshot.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/reload.polybar.sh
