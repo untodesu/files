@@ -1,12 +1,11 @@
+set $MENU dmenu_run -nb "#000000" -sb "#FF0084" -sf "#000000" -fn "Ubuntu-Mono:regular:size=18"
+set $TERMINAL terminator
+
 # Colors - testing
 set $COL_PRIM #FF0084
 set $COL_SECN #2E2E2E
 set $COL_BACK #000000
 set $COL_FORE #FFFFFF
-
-# Commands
-set $MENU dmenu_run -nb "#000000" -sb "#FF0084" -sf "#000000" -fn "Ubuntu-Mono:regular:size=18"
-set $TERMINAL terminator
 
 # Start a new terminal session
 bindsym Mod1+Return exec --no-startup-id $TERMINAL; focus
