@@ -42,6 +42,9 @@ floating_modifier Mod1
 # Kill the focused container
 bindsym Mod1+q kill
 
+# Toggle fullscreen for a window
+bindsym Mod1+f fullscreen
+
 # Move focus around containers
 bindsym Mod1+Left  focus left
 bindsym Mod1+Down  focus down
