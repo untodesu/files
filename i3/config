@@ -1,5 +1,3 @@
-set $MENU dmenu_run -nb "#000000" -sb "#FF0084" -sf "#000000" -fn "Ubuntu-Mono:regular:size=18"
-set $TERMINAL terminator
 
 # Colors - testing
 set $COL_PRIM #FF0084
@@ -8,13 +6,13 @@ set $COL_BACK #000000
 set $COL_FORE #FFFFFF
 
 # Start a new terminal session
-bindsym Mod1+Return exec --no-startup-id $TERMINAL; focus
+bindsym Mod1+Return exec --no-startup-id terminator; focus
 
 # Run the menu application
 # My hands don't physically feel comfortable
 # when reaching for the D key as the index finger
 # is laying right on the R key instead, so here's that.
-bindsym Mod1+r exec --no-startup-id $MENU
+bindsym Mod1+r exec --no-startup-id dmenu_run -nb "$COL_BACK" -nf "$COL_FORE" -sb "$COL_PRIM" -sf "$COL_BACK" -fn "Ubuntu-Mono:regular:size=18"
 
 # Screenshots
 # Notice that it doesn't follow the common key
