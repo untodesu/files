@@ -1,9 +1,13 @@
 
 # Colors - testing
-set $COL_PRIM #FF0084
-set $COL_SECN #2E2E2E
+set $COL_PRIM #FF00FF
 set $COL_BACK #000000
 set $COL_FORE #FFFFFF
+
+# Pixel sizes and whatnot
+set $WINDOW_BORDER 1
+set $WINDOW_GAP_INNER 16
+set $WINDOW_GAP_OUTER 1
 
 # Start a new terminal session
 bindsym Mod1+Return exec --no-startup-id terminator; focus
@@ -12,7 +16,7 @@ bindsym Mod1+Return exec --no-startup-id terminator; focus
 # My hands don't physically feel comfortable
 # when reaching for the D key as the index finger
 # is laying right on the R key instead, so here's that.
-bindsym Mod1+r exec --no-startup-id dmenu_run -nb "$COL_BACK" -nf "$COL_FORE" -sb "$COL_PRIM" -sf "$COL_BACK" -fn "Ubuntu-Mono:regular:size=18"
+bindsym Mod1+r exec --no-startup-id dmenu_run -nb "$COL_BACK" -nf "$COL_FORE" -sb "$COL_FORE" -sf "$COL_BACK" -fn "Ubuntu-Mono:regular:size=16"
 
 # Screenshots
 # Notice that it doesn't follow the common key
@@ -129,10 +133,10 @@ bindsym Mod4+Ctrl+c reload
 bindsym Mod4+Ctrl+r restart
 
 # Container borders
-default_border pixel 1
-for_window [class="^.*"] border pixel 1
-gaps inner 4
-gaps outer 2
+default_border pixel $WINDOW_BORDER
+for_window [class="^.*"] border pixel $WINDOW_BORDER
+gaps inner $WINDOW_GAP_INNER
+gaps outer $WINDOW_GAP_OUTER
 
 # Colors
 client.focused $COL_PRIM $COL_BACK $COL_FORE $COL_PRIM $COL_PRIM
