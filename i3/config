@@ -8,6 +8,7 @@ set $COL_FORE #FFFFFF
 set $WINDOW_BORDER 1
 set $WINDOW_GAP_INNER 16
 set $WINDOW_GAP_OUTER 1
+set $FONT_SIZE 16
 
 # Start a new terminal session
 bindsym Mod1+Return exec --no-startup-id terminator; focus
@@ -16,7 +17,7 @@ bindsym Mod1+Return exec --no-startup-id terminator; focus
 # My hands don't physically feel comfortable
 # when reaching for the D key as the index finger
 # is laying right on the R key instead, so here's that.
-bindsym Mod1+r exec --no-startup-id dmenu_run -nb "$COL_BACK" -nf "$COL_FORE" -sb "$COL_FORE" -sf "$COL_BACK" -fn "Ubuntu-Mono:regular:size=16"
+bindsym Mod1+r exec --no-startup-id dmenu_run -nb "$COL_BACK" -nf "$COL_FORE" -sb "$COL_FORE" -sf "$COL_BACK" -fn "Ubuntu-Mono:regular:size=$FONT_SIZE"
 
 # Screenshots
 # Notice that it doesn't follow the common key
@@ -144,16 +145,16 @@ client.focused_inactive $COL_BACK $COL_BACK $COL_FORE $COL_BACK $COL_BACK
 client.unfocused $COL_BACK $COL_BACK $COL_FORE $COL_BACK $COL_BACK
 
 # The font (eek)
-font pango:Ubuntu Mono 16
+font pango:Ubuntu Mono $FONT_SIZE
 
 # Start XDG autostart .desktop entries using dex
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
 # Autostart
-exec --no-startup-id $HOME/.config/i3/dbus.sh
-exec_always --no-startup-id $HOME/.config/i3/dunst.sh
+exec_always --no-startup-id dbus-update-activation-environment --all
+exec_always --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle
+exec_always --no-startup-id feh --bg-fill --randomize ${HOME}/.config/wallpapers
 exec_always --no-startup-id $HOME/.config/i3/flameshot.sh
-exec_always --no-startup-id $HOME/.config/i3/keyboard.sh
+exec_always --no-startup-id $HOME/.config/i3/notifyd.sh
 exec_always --no-startup-id $HOME/.config/i3/polybar.sh
-exec_always --no-startup-id $HOME/.config/i3/wallpaper.sh
