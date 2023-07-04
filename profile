@@ -1,16 +1,7 @@
 #!/bin/sh
 
-# Set the prompt to the following:
-# [WHITESPACE]
-# [BOLD, BLUE] username
-# [DEFAULT] <AT>
-# [DEFAULT] short hostname
-# [WHITESPACE]
-# [BOLD, WHITE] working directory
-# [WHITESPACE]
-# [DEFAULT] <PERCENT>
-# [WHITESPACE]
-export PS1=" \[\e[0;1;34m\]\u\[\e[0m\]@\[\e[0m\]\h \[\e[0;1;37m\]\w \[\e[0m\]% \[\e[0m\]"
+# It is as shrimple as that
+export PS1="$ "
 
 # Some systems define LANGUAGE, some
 # define LANG and others use LC_ALL, so
