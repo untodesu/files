@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PS1="$ "
+
 # Some systems define LANGUAGE, some
 # define LANG and others use LC_ALL, so
 # it would be a good idea to test all of them
