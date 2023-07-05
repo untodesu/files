@@ -1,6 +1,12 @@
 #!/bin/sh
 
-export PS1='${?} [VPS] $ '
+export ps1_char="%"
+export ps1_hostname="\$(hostname -s)"
+export ps1_username="\${USER:-\${USERNAME:-\${LOGNAME:-\$(whoami)}}}"
+export PS1="\033[0m ${?} \033[1m${ps1_username}\033[0m@${ps1_hostname} \033[1m\${PWD/\${HOME}/\~}\033[0m ${ps1_char} "
+
+# Yes, definitely
+export POSIXLY_CORRECT=1
 
 # Some systems define LANGUAGE, some
 # define LANG and others use LC_ALL, so
@@ -20,3 +26,6 @@ path_prepend "${HOME}/bin"
 # What the fuck
 #[ -z "${XDG_RUNTIME_DIR}" ] && export XDG_RUNTIME_DIR="/run/user/$(id -ru)"
 
+# Funny aliases
+alias la="ls -al"
+alias ll="ls -l"
