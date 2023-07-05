@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export PS1="$ "
+export PS1='${?} [VPS] $ '
 
 # Some systems define LANGUAGE, some
 # define LANG and others use LC_ALL, so
@@ -16,3 +16,7 @@ path_prepend() { if test -d "${1}"; then export PATH="${1}:${PATH}"; fi }
 path_prepend "${HOME}/.local/bin"
 path_prepend "${HOME}/.local/share/bin"
 path_prepend "${HOME}/bin"
+
+# What the fuck
+#[ -z "${XDG_RUNTIME_DIR}" ] && export XDG_RUNTIME_DIR="/run/user/$(id -ru)"
+
