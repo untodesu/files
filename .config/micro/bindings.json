@@ -1,0 +1,15 @@
+{
+    "Ctrl-A": "SelectAll",
+    "Ctrl-C": "CopyLine|Copy",
+    "Ctrl-D": "CutLine",
+    "Ctrl-L": "OpenFile",
+    "Ctrl-O": "HSplit",
+    "Ctrl-P": "VSplit",
+    "Ctrl-S": "Save",
+    "Ctrl-U": "ShellMode",
+    "Ctrl-V": "Paste",
+    "Ctrl-W": "NextSplit",
+    "Ctrl-X": "Cut",
+    "Ctrl-Y": "CommandMode",
+    "Ctrl-Z": "Undo",
+}
